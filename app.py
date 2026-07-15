@@ -6,11 +6,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+import json
+
 # Load Model & Columns
 try:
     model = joblib.load("models/tuned_gradient_boosting.pkl")
-    X_train = joblib.load("models/X_train_encoded.pkl")
-    training_columns = X_train.columns
+    with open("models/training_columns.json", "r") as f:
+        training_columns = json.load(f)
 except Exception as e:
     print(f"Error loading model artifacts: {e}")
 
