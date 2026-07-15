@@ -28,7 +28,8 @@ Rather than focusing solely on model accuracy, this project emphasizes understan
 
 ## 📂 Dataset
 
-**Dataset:** Ames Housing Dataset
+**Dataset:** Ames Housing Dataset (from Kaggle)  
+**Source:** [House Prices - Advanced Regression Techniques](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview)
 
 The dataset contains detailed information about residential homes, including structural characteristics, location, amenities, and sale prices.
 
@@ -57,32 +58,21 @@ The dataset contains detailed information about residential homes, including str
 
 ## 🛠️ Tech Stack
 
-### Programming Language
+### Machine Learning & Data Science
+* **Language:** Python
+* **Libraries:** NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, SHAP, Joblib
 
-* Python
+### Backend API
+* **Framework:** Flask
+* **Features:** Flask-CORS for cross-origin requests, RESTful API endpoint (`/predict`) for model inference
 
-### Libraries
-
-* NumPy
-* Pandas
-* Matplotlib
-* Seaborn
-* Scikit-learn
-* XGBoost
-* SHAP
-* Joblib
-
-### Deployment (Planned)
-
-* FastAPI
-* Streamlit
-* Docker
+### Frontend Web Application
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Vanilla CSS (Glassmorphism design)
 
 ### Development Environment
-
-* Jupyter Notebook
-* Git
-* GitHub
+* **Tools:** Jupyter Notebook, Git, GitHub
 
 ---
 
@@ -96,14 +86,29 @@ house-price-prediction/
 │   └── processed/
 │
 ├── notebooks/
-│   └── House_Price_Prediction.ipynb
+│   ├── 01_Data_Understanding.ipynb
+│   ├── 02_EDA.ipynb
+│   ├── 03_Feature_Engineering.ipynb
+│   ├── 04_Data_Preprocessing.ipynb
+│   ├── 05_Model_Training.ipynb
+│   ├── 06_Hyperparameter_Tuning.ipynb
+│   ├── 07_Model_Evaluation.ipynb
+│   ├── 08_Model_Explainability.ipynb
+│   └── 09_Inference.ipynb
 │
 ├── models/
+│   ├── tuned_gradient_boosting.pkl
+│   ├── X_train_encoded.pkl
+│   └── scaler.pkl
 │
-├── app/
+├── frontend/             # Next.js TypeScript Frontend
+│   ├── src/app/
+│   │   ├── page.tsx      # Main UI
+│   │   ├── globals.css   # Glassmorphism styling
+│   │   └── layout.tsx
+│   └── package.json
 │
-├── images/
-│
+├── app.py                # Flask Backend API
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -132,23 +137,23 @@ The project follows the standard machine learning pipeline:
 
 ---
 
-## 🤖 Models to be Evaluated
+## 🤖 Models Evaluated
 
-The following regression algorithms will be trained and compared:
+The following regression algorithms were trained and compared:
 
 * Linear Regression
 * Decision Tree Regressor
 * Random Forest Regressor
-* Gradient Boosting Regressor
+* Gradient Boosting Regressor (Selected Model)
 * XGBoost Regressor
 
-The best-performing model will be selected based on evaluation metrics.
+The Gradient Boosting Regressor was selected as the best-performing model based on evaluation metrics.
 
 ---
 
 ## 📊 Evaluation Metrics
 
-The models will be evaluated using:
+The models were evaluated using:
 
 * Mean Absolute Error (MAE)
 * Mean Squared Error (MSE)
@@ -159,25 +164,21 @@ The models will be evaluated using:
 
 ## 🔍 Explainable AI
 
-To understand how the model makes predictions, SHAP (SHapley Additive exPlanations) will be used to:
+To understand how the model makes predictions, SHAP (SHapley Additive exPlanations) was used to:
 
-* Identify important features
-* Explain individual predictions
-* Visualize feature impact
-* Improve model transparency
+* Identify important features (e.g., Overall Quality, Total Square Footage, Year Built)
+* Explain individual predictions using waterfall plots
+* Visualize feature impact and improve model transparency
 
 ---
 
 ## 🚀 Future Improvements
 
-* Interactive Streamlit dashboard
-* FastAPI backend
 * Docker containerization
-* Hyperparameter optimization
 * CI/CD pipeline
 * MLflow experiment tracking
 * Model monitoring
-* Cloud deployment
+* Cloud deployment (e.g., Vercel for frontend, Render/Heroku for backend)
 
 ---
 
@@ -192,7 +193,7 @@ This project demonstrates practical experience with:
 * Model Evaluation
 * Explainable AI
 * Machine Learning Pipelines
-* Model Deployment
+* Full-Stack Model Deployment (Flask + Next.js)
 
 ---
 
