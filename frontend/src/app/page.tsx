@@ -49,7 +49,7 @@ export default function Home() {
         setError(data.error || 'Failed to predict price');
       }
     } catch (err) {
-      setError('Failed to connect to the prediction server. Make sure the backend is running.');
+      setError('Failed to connect to the prediction server. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -58,11 +58,11 @@ export default function Home() {
   return (
     <div className="container">
       <div className="header">
-        <h1>House Price Predictor</h1>
-        <p>AI-Powered Real Estate Valuation</p>
+        <h1>Property Valuation</h1>
+        <p>Instant, AI-driven estimates based on comprehensive market data</p>
       </div>
 
-      <div className="glass-panel">
+      <div className="card">
         <form onSubmit={handleSubmit}>
           <div className="form-grid">
             <div className="input-group">
@@ -111,21 +111,21 @@ export default function Home() {
             </div>
 
             <div className="input-group">
-              <label>Garage Cars</label>
+              <label>Garage Capacity (Cars)</label>
               <input type="number" min="0" max="10" name="GarageCars" value={formData.GarageCars} onChange={handleChange} required />
             </div>
           </div>
 
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? <span className="spinner"></span> : 'Predict Value'}
+            {loading ? <span className="spinner"></span> : 'Calculate Estimate'}
           </button>
         </form>
 
         {predictedPrice !== null && (
           <div className="result-card">
-            <h2>Estimated Home Value</h2>
+            <h2>Estimated Value</h2>
             <div className="price">
-              ${predictedPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              ${predictedPrice.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
             </div>
           </div>
         )}
