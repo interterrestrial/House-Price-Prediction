@@ -178,9 +178,16 @@ To understand how the model makes predictions, SHAP (SHapley Additive exPlanatio
 * CI/CD pipeline
 * MLflow experiment tracking
 * Model monitoring
-* Cloud deployment (e.g., Vercel for frontend, Render/Heroku for backend)
 
 ---
+
+## 🌐 Live Demo
+
+Try the deployed application:
+
+https://house-price-prediction-tan-omega.vercel.app/
+
+--
 
 ## 📚 Learning Outcomes
 
