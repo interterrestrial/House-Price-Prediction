@@ -1,0 +1,3 @@
+Model,R2 Score
+Baseline Gradient Boosting,0.9077026700636337
+Tuned Gradient Boosting,0.9147261196625325
